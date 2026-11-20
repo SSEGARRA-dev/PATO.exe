@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATO.exe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main>
+
+    <!-- PANTALLA INICIAL: COMPTE ARRERE -->
+    <section id="pantalla-inici">
+
+        <h1>PATO.exe</h1>
+        <p>INTRUSION DETECTION SYSTEM</p>
+
+        <pre class="aneguet">
+       __
+    __(o )>
+   /      \
+  /  X  X  \
+ (          )
+  \________/
+    ||  ||
+        </pre>
+
+        <h2>INICI DEL PROTOCOL</h2>
+        <p>01.12.2026 - 00:00:00</p>
+
+        <div id="compte-enrere">
+            <span id="dies">00</span> :
+            <span id="hores">00</span> :
+            <span id="minuts">00</span> :
+            <span id="segons">00</span>
+        </div>
+
+        <p id="estat">STATUS: STANDBY_</p>
+
+        <button id="boto-prova" type="button"
+                onclick="mostrarPantalla('pantalla-menu')">
+            [ MODE PROVA ]
+        </button>
+
+    </section>
+
+
+    <!-- MENÚ PRINCIPAL -->
+    <section id="pantalla-menu" class="oculta">
+
+        <h1>PATO.exe</h1>
+        <p>INTRUSION DETECTION SYSTEM</p>
+
+        <pre class="aneguet">
+       __
+    __(o )>
+   /      \
+  /  X  X  \
+ (          )
+  \________/
+    ||  ||
+        </pre>
+
+        <h2>SYSTEM ACTIVATED</h2>
+        <p>WARNING: ACTIVITAT SOSPITOSA DETECTADA</p>
+
+        <div class="terminal">
+            <p>C:\PATO&gt; ./menu</p>
+            <h3>SELECCIONA UNA OPERACIÓ</h3>
+
+            <button type="button"
+                    onclick="mostrarPantalla('pantalla-registre')">
+                [ 01 ] REGISTRE D'INTRUSOS
+            </button>
+
+            <button type="button"
+                    onclick="mostrarPantalla('pantalla-quarantena')">
+                [ 02 ] CONTROL DE QUARANTENA
+            </button>
+        </div>
+
+        <p class="estat-sistema">STATUS: ESPERANT ORDRES_</p>
+
+        <button id="boto-tornar-inici" type="button"
+                onclick="mostrarPantalla('pantalla-inici')">
+            [ TORNAR AL COMPTE ARRERE ]
+        </button>
+
+    </section>
+
+
+    <!-- PANTALLA DE REGISTRE -->
+    <section id="pantalla-registre" class="oculta">
+
+        <h1>PATO.exe</h1>
+        <p>C:\PATO&gt; ./register</p>
+
+        <h2>REGISTRE D'INTRUSOS</h2>
+
+        <div class="terminal">
+
+            <p>INTRODUÏX L'IDENTIFICADOR RECUPERAT</p>
+
+            <form id="formulari-registre">
+                <label for="codi-intrus">IDENTIFICADOR:</label>
+
+                <input type="text"
+                       id="codi-intrus"
+                       placeholder="XXX"
+                       maxlength="3"
+                       inputmode="numeric"
+                       pattern="[0-9]{3}"
+                       required>
+
+                <button type="submit">
+                    [ VERIFICAR ]
+                </button>
+            </form>
+
+            <p id="resultat-registre">
+                ESTAT: ESPERANT IDENTIFICADOR_
+            </p>
+
+            <p id="total-registrats">
+                CAPTURES REGISTRADES: 0
+            </p>
+
+        </div>
+
+        <button type="button"
+                onclick="mostrarPantalla('pantalla-menu')">
+            [ TORNAR AL MENÚ ]
+        </button>
+
+    </section>
+
+
+    <!-- PANTALLA DE QUARANTENA -->
+    <section id="pantalla-quarantena" class="oculta">
+
+        <h1>PATO.exe</h1>
+        <p>C:\PATO&gt; ./quarantine --status</p>
+
+        <h2>CONTROL DE QUARANTENA</h2>
+
+        <div class="terminal">
+
+            <div class="nivell">
+                <h3>ANOMALIA</h3>
+                <p id="nivell-3">SENSE INTRUSOS</p>
+            </div>
+
+            <div class="nivell">
+                <h3>AÏLLAMENT</h3>
+                <p id="nivell-2">SENSE INTRUSOS</p>
+            </div>
+
+            <div class="nivell">
+                <h3>QUARENTENA</h3>
+                <p id="nivell-1">SENSE INTRUSOS</p>
+            </div>
+
+            <div class="nivell pendent">
+                <h3>PENDENTS DE CLASSIFICAR</h3>
+                <p id="nivell-0">CAP INTRÚS PENDENT</p>
+            </div>
+
+        </div>
+
+        <button type="button"
+                onclick="mostrarPantalla('pantalla-menu')">
+            [ TORNAR AL MENÚ ]
+        </button>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>

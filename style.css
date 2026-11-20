@@ -1,0 +1,236 @@
+
+/* ESTIL GENERAL */
+
+body {
+    background-color: #050b06;
+    color: #7fff95;
+    font-family: "Courier New", monospace;
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* PANTALLA PRINCIPAL */
+
+main {
+    box-sizing: border-box;
+    width: 85%;
+    max-width: 750px;
+    padding: 30px;
+    margin: 30px auto;
+
+    border: 2px solid #397b47;
+    background-color: #09140c;
+    box-shadow: 0 0 25px #1d5b2a;
+    text-align: center;
+}
+
+/* PANTALLES OCULTES */
+
+.oculta {
+    display: none;
+}
+
+/* TÍTOLS */
+
+h1 {
+    font-size: 42px;
+    letter-spacing: 5px;
+    text-shadow: 0 0 12px #45ff70;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-top: 25px;
+}
+
+h3 {
+    font-size: 17px;
+}
+
+/* TEXTOS */
+
+p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* INTRÚS ASCII */
+
+.aneguet {
+    color: #7fff95;
+    font-size: 18px;
+    line-height: 1.2;
+    display: inline-block;
+    text-align: left;
+    text-shadow: 0 0 8px #45ff70;
+    margin: 25px 0;
+}
+
+/* COMPTE ARRERE */
+
+#compte-enrere {
+    background-color: #020702;
+    border: 1px solid #397b47;
+    padding: 20px;
+    margin: 20px auto;
+
+    font-size: clamp(24px, 6vw, 48px);
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 0 0 12px #45ff70;
+}
+
+/* ESTAT DEL SISTEMA */
+
+#estat,
+.estat-sistema {
+    margin-top: 25px;
+    font-size: 14px;
+    animation: parpelleig 1s infinite;
+}
+
+@keyframes parpelleig {
+    0%, 50% {
+        opacity: 1;
+    }
+
+    51%, 100% {
+        opacity: 0.4;
+    }
+}
+
+/* BOTONS RETRO */
+
+button {
+    background-color: #050b06;
+    color: #7fff95;
+    border: 1px solid #397b47;
+    padding: 12px 20px;
+    margin: 12px 5px;
+
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7fff95;
+    color: #050b06;
+}
+
+button:focus-visible {
+    outline: 2px solid #7fff95;
+    outline-offset: 3px;
+}
+
+/* MENÚ PRINCIPAL */
+
+#pantalla-menu .terminal button {
+    display: block;
+    width: 90%;
+    max-width: 400px;
+    margin: 15px auto;
+}
+
+/* FINESTRA DE TERMINAL */
+
+.terminal {
+    background-color: #020702;
+    border: 1px solid #397b47;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+/* FORMULARI */
+
+#formulari-registre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+input {
+    background-color: #050b06;
+    color: #7fff95;
+    border: 1px solid #397b47;
+    padding: 10px;
+    width: 90px;
+
+    font-family: "Courier New", monospace;
+    font-size: 18px;
+    text-align: center;
+}
+
+input:focus {
+    outline: 1px solid #7fff95;
+}
+
+#resultat-registre {
+    margin-top: 25px;
+    overflow-wrap: anywhere;
+}
+
+/* NIVELLS DE QUARANTENA */
+
+.nivell {
+    background-color: #09140c;
+    border: 1px solid #397b47;
+    margin: 12px 0;
+    padding: 15px;
+    text-align: left;
+}
+
+.nivell h3 {
+    margin: 0 0 10px;
+}
+
+.nivell p {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.pendent {
+    border-color: #b89b55;
+    color: #f2cf83;
+}
+
+/* ADAPTACIÓ A MÒBILS */
+
+@media (max-width: 600px) {
+
+    main {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .aneguet {
+        font-size: 14px;
+    }
+
+    #compte-enrere {
+        font-size: clamp(18px, 5vw, 30px);
+        letter-spacing: 0;
+        padding: 12px 5px;
+    }
+
+    .terminal {
+        padding: 12px;
+    }
+
+    #pantalla-menu .terminal button {
+        width: 100%;
+        margin: 12px auto;
+    }
+}
