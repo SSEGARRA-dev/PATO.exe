@@ -1,4 +1,3 @@
-
 /* ESTIL GENERAL */
 
 body {
@@ -28,10 +27,11 @@ main {
     text-align: center;
 }
 
-/* PANTALLES OCULTES */
+/* PANTALLES I ELEMENTS OCULTS */
 
-.oculta {
-    display: none;
+.oculta,
+[hidden] {
+    display: none !important;
 }
 
 /* TÍTOLS */
@@ -234,6 +234,101 @@ input:focus {
     color: #f2cf83;
 }
 
+/* ===================================== */
+/* MISSIONS ESPECIALS                    */
+/* ===================================== */
+
+/* AVÍS DE NOVA MISSIÓ */
+
+.avis-missio {
+    color: #f2cf83;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* BOTÓ D'ARXIUS CLASSIFICATS */
+
+.boto-classificat {
+    border-color: #b89b55;
+    color: #f2cf83;
+}
+
+.boto-classificat:hover {
+    background-color: #f2cf83;
+    color: #050b06;
+}
+
+/* INSTRUCCIONS DE LA MISSIÓ */
+
+.instruccions-missio {
+    border-top: 1px solid #397b47;
+    border-bottom: 1px solid #397b47;
+    margin: 20px 0;
+    padding: 15px 0;
+    text-align: left;
+}
+
+.instruccions-missio p {
+    font-size: 14px;
+}
+
+/* ARXIUS CLASSIFICATS */
+
+.arxiu-classificat {
+    background-color: #09140c;
+    border: 1px solid #397b47;
+    padding: 15px;
+    margin: 15px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    text-align: left;
+}
+
+.info-arxiu h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+}
+
+.info-arxiu p {
+    margin: 0;
+    color: #f2cf83;
+    font-size: 12px;
+}
+
+/* BOTONS DE DESCÀRREGA */
+
+.boto-descarrega {
+    display: inline-block;
+    box-sizing: border-box;
+
+    background-color: #050b06;
+    color: #7fff95;
+    border: 1px solid #397b47;
+
+    padding: 12px;
+    font-size: 13px;
+    font-family: "Courier New", monospace;
+
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.boto-descarrega:hover {
+    background-color: #7fff95;
+    color: #050b06;
+}
+
+.boto-descarrega:focus-visible {
+    outline: 2px solid #7fff95;
+    outline-offset: 3px;
+}
+
 /* ADAPTACIÓ A MÒBILS */
 
 @media (max-width: 600px) {
@@ -274,5 +369,27 @@ input:focus {
     #pantalla-menu .terminal button {
         width: 100%;
         margin: 12px auto;
+    }
+
+    /* ARXIUS CLASSIFICATS EN MÒBIL */
+
+    .arxiu-classificat {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .boto-descarrega {
+        width: 100%;
+    }
+
+    .info-arxiu h3 {
+        font-size: 16px;
+    }
+
+    .instruccions-missio p {
+        font-size: 13px;
     }
 }

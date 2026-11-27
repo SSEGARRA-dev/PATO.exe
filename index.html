@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PATO.exe</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -89,6 +88,10 @@
         <h2>SYSTEM ACTIVATED</h2>
         <p>WARNING: ACTIVITAT SOSPITOSA DETECTADA</p>
 
+        <p id="avis-missio" class="avis-missio oculta">
+            WARNING: CLASSIFIED FILES AVAILABLE
+        </p>
+
         <div class="terminal">
             <p>C:\PATO&gt; ./menu</p>
             <h3>SELECCIONA UNA OPERACIÓ</h3>
@@ -102,6 +105,14 @@
                     onclick="mostrarPantalla('pantalla-quarantena')">
                 [ 02 ] CONTROL DE QUARANTENA
             </button>
+
+            <button id="boto-arxius" type="button"
+                    class="boto-classificat"
+                    hidden
+                    onclick="mostrarPantalla('pantalla-arxius')">
+                [ 03 ] ARXIUS CLASSIFICATS
+            </button>
+
         </div>
 
         <p class="estat-sistema">STATUS: ESPERANT ORDRES_</p>
@@ -181,7 +192,7 @@
             </div>
 
             <div class="nivell">
-                <h3>QUARENTENA</h3>
+                <h3>QUARANTENA</h3>
                 <p id="nivell-1">SENSE INTRUSOS</p>
             </div>
 
@@ -199,9 +210,125 @@
 
     </section>
 
+
+    <!-- PANTALLA D'ARXIUS CLASSIFICATS -->
+    <section id="pantalla-arxius" class="oculta">
+
+        <h1>PATO.exe</h1>
+        <p>C:\PATO&gt; ./access --recover</p>
+
+        <h2>DAY_04 — ACCESS TERMINAL</h2>
+
+        <div class="terminal">
+
+            <p>CONNECTION ESTABLISHED</p>
+
+            <p class="avis-missio">
+                WARNING: 4 ARXIUS PROTEGITS
+            </p>
+
+            <p>SECURITY LEVEL: 03</p>
+
+            <div class="instruccions-missio">
+
+                <p>
+                    La central ha recuperat quatre arxius
+                    d'origen desconegut.
+                </p>
+
+                <p>
+                    Recupera els arxius, identifica el sistema
+                    de codificació de cadascun i descodifica
+                    les dades per a localitzar els intrusos.
+                </p>
+
+                <p>
+                    No tots els arxius utilitzen el mateix
+                    protocol de codificació. ▮
+                </p>
+
+            </div>
+
+            <!-- ARXIU 01 -->
+            <div class="arxiu-classificat">
+
+                <div class="info-arxiu">
+                    <h3>FILE_01.enc</h3>
+                    <p>ENCODED DATA / LOCKED</p>
+                </div>
+
+                <a class="boto-descarrega"
+                   href="missions/day04/FILE_01.enc"
+                   download="FILE_01.enc">
+                    [ DESCARREGAR ]
+                </a>
+
+            </div>
+
+            <!-- ARXIU 02 -->
+            <div class="arxiu-classificat">
+
+                <div class="info-arxiu">
+                    <h3>FILE_02.enc</h3>
+                    <p>ENCODED DATA / LOCKED</p>
+                </div>
+
+                <a class="boto-descarrega"
+                   href="missions/day04/FILE_02.enc"
+                   download="FILE_02.enc">
+                    [ DESCARREGAR ]
+                </a>
+
+            </div>
+
+            <!-- ARXIU 03 -->
+            <div class="arxiu-classificat">
+
+                <div class="info-arxiu">
+                    <h3>FILE_03.enc</h3>
+                    <p>ENCODED DATA / LOCKED</p>
+                </div>
+
+                <a class="boto-descarrega"
+                   href="missions/day04/FILE_03.enc"
+                   download="FILE_03.enc">
+                    [ DESCARREGAR ]
+                </a>
+
+            </div>
+
+            <!-- ARXIU 04 -->
+            <div class="arxiu-classificat">
+
+                <div class="info-arxiu">
+                    <h3>FILE_04.enc</h3>
+                    <p>ENCODED DATA / LOCKED</p>
+                </div>
+
+                <a class="boto-descarrega"
+                   href="missions/day04/FILE_04.enc"
+                   download="FILE_04.enc">
+                    [ DESCARREGAR ]
+                </a>
+
+            </div>
+
+        </div>
+
+        <p class="estat-sistema">
+            STATUS: AWAITING DECRYPTION_ ▮
+        </p>
+
+        <button type="button"
+                onclick="mostrarPantalla('pantalla-menu')">
+            [ TORNAR AL MENÚ ]
+        </button>
+
+    </section>
+
 </main>
 
-<script src="script.js?v=2"></script>
+<script src="script.js?v=3"></script>
 
 </body>
 </html>

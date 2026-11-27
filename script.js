@@ -1,6 +1,5 @@
-
 // =====================================
-// PATO.exe - SISTEMA DE CONTROL
+// PATO.exe - SISTEMA DE CONTROL V3
 // =====================================
 
 // CONFIGURACIÓ
@@ -10,6 +9,9 @@ const dataInici = new Date(2026, 11, 1, 0, 0, 0);
 
 // Canviar a false abans de publicar
 const modeProva = false;
+
+// Data d'activació de la missió DAY_04
+const dataMissio04 = new Date(2026, 11, 4, 0, 0, 0);
 
 // =====================================
 // BASE DE DADES D'INTRUSOS
@@ -72,6 +74,7 @@ const nomsNivells = {
     3: "ANOMALIA"
 };
 
+
 // =====================================
 // EMMAGATZEMATGE DE DADES
 // =====================================
@@ -108,6 +111,7 @@ let historial = JSON.parse(
 
 let pantallaActual = "pantalla-inici";
 
+
 // =====================================
 // GUARDAR DADES
 // =====================================
@@ -130,6 +134,54 @@ function guardarDades() {
     );
 }
 
+
+// =====================================
+// MISSIONS ESPECIALS
+// =====================================
+
+// Comprovar si la missió DAY_04 està disponible
+
+function missio04Disponible() {
+
+    if (modeProva) {
+        return true;
+    }
+
+    return new Date() >= dataMissio04;
+}
+
+
+// Actualitzar el menú de missions
+
+function actualitzarMissions() {
+
+    const botoArxius = document.getElementById(
+        "boto-arxius"
+    );
+
+    const avisMissio = document.getElementById(
+        "avis-missio"
+    );
+
+    if (missio04Disponible()) {
+
+        // Mostrar el botó i l'avís de nova missió
+
+        botoArxius.hidden = false;
+
+        avisMissio.classList.remove("oculta");
+
+    } else {
+
+        // Ocultar el botó i l'avís
+
+        botoArxius.hidden = true;
+
+        avisMissio.classList.add("oculta");
+    }
+}
+
+
 // =====================================
 // CANVI DE PANTALLES
 // =====================================
@@ -141,6 +193,16 @@ function mostrarPantalla(nomPantalla) {
 
     if (!modeProva && new Date() < dataInici) {
         nomPantalla = "pantalla-inici";
+    }
+
+    // Impedir l'accés a la missió DAY_04
+    // abans de la seua activació
+
+    if (
+        nomPantalla === "pantalla-arxius" &&
+        !missio04Disponible()
+    ) {
+        nomPantalla = "pantalla-menu";
     }
 
     // Ocultar totes les pantalles
@@ -159,7 +221,10 @@ function mostrarPantalla(nomPantalla) {
     pantallaActual = nomPantalla;
 
     actualitzarCaptures();
+
+    actualitzarMissions();
 }
+
 
 // =====================================
 // COMPTE ARRERE
@@ -169,6 +234,10 @@ function actualitzarCompteEnrere() {
 
     const ara = new Date();
     const diferencia = dataInici - ara;
+
+    // Comprovar si hi ha noves missions disponibles
+
+    actualitzarMissions();
 
     // Quan arriba l'1 de desembre
 
@@ -210,6 +279,7 @@ function actualitzarCompteEnrere() {
         String(segons).padStart(2, "0");
 }
 
+
 // =====================================
 // COMPROVAR DATA D'ACTIVACIÓ
 // =====================================
@@ -236,6 +306,7 @@ function intrusDisponible(codi) {
     return new Date() >= dataActivacio;
 }
 
+
 // =====================================
 // CONSULTAR CLASSIFICACIÓ ACTUAL
 // =====================================
@@ -254,6 +325,7 @@ function obtenirNivell(codi) {
 
     return intrusos[codi].nivell;
 }
+
 
 // =====================================
 // REGISTRE D'INTRUSOS
@@ -365,6 +437,7 @@ function verificarIntrus() {
     camp.value = "";
 }
 
+
 // =====================================
 // RECLASSIFICACIÓ D'INTRUSOS
 // =====================================
@@ -419,6 +492,7 @@ function reclassificarIntrus(codi, nouNivell) {
 
     return true;
 }
+
 
 // =====================================
 // CONTROL DE QUARANTENA
@@ -479,6 +553,7 @@ function actualitzarCaptures() {
         (pendents.join(", ") || "—");
 }
 
+
 // =====================================
 // REINICIAR DADES DE PROVA
 // =====================================
@@ -511,6 +586,7 @@ function reiniciarProves() {
 
     console.log("SYSTEM: DADES DE PROVA ELIMINADES");
 }
+
 
 // =====================================
 // INICI DEL PROGRAMA
@@ -555,6 +631,10 @@ if (new Date() >= dataInici) {
 
     mostrarPantalla("pantalla-inici");
 }
+
+// Comprovar les missions disponibles
+
+actualitzarMissions();
 
 // Iniciar el rellotge
 
