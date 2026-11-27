@@ -79,10 +79,42 @@ p {
     padding: 20px;
     margin: 20px auto;
 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+
     font-size: clamp(24px, 6vw, 48px);
     font-weight: bold;
     letter-spacing: 3px;
     text-shadow: 0 0 12px #45ff70;
+}
+
+/* BLOCS DE TEMPS */
+
+.bloc-temps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    gap: 8px;
+}
+
+/* ETIQUETES DEL COMPTE ARRERE */
+
+.unitat-temps {
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    text-shadow: none;
+}
+
+/* SEPARADORS DEL COMPTE ARRERE */
+
+.separador-temps {
+    line-height: normal;
+    flex-shrink: 0;
 }
 
 /* ESTAT DEL SISTEMA */
@@ -222,7 +254,17 @@ input:focus {
     #compte-enrere {
         font-size: clamp(18px, 5vw, 30px);
         letter-spacing: 0;
-        padding: 12px 5px;
+        padding: 15px 5px;
+        gap: 4px;
+    }
+
+    .bloc-temps {
+        gap: 6px;
+    }
+
+    .unitat-temps {
+        font-size: clamp(8px, 2.4vw, 11px);
+        letter-spacing: 0;
     }
 
     .terminal {
